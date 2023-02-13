@@ -21,10 +21,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-
-mongoose.connect(
-  "mongodb+srv://aadarsh:test-123@cluster0.4ryob.mongodb.net/blogDB"
-);
+const MONGO_URL = process.env.MONGO_URL;
+mongoose.connect(MONGO_URL);
 const blogschema = new mongoose.Schema({
   title: String,
   post: String,
